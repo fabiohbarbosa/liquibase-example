@@ -9,7 +9,7 @@ CREATE TABLE POC (
 --rollback DROP TABLE POC;
 
 --liquibase formatted sql
---changeset fabio.barbosa:001.2 context:tests
+--changeset fabio.barbosa:001.2 context:test
 INSERT INTO POC VALUES(POC_SEQUENCE.nextval, 'Poc Test 1');
 INSERT INTO POC VALUES(POC_SEQUENCE.nextval, 'Poc Test 2');
 --rollback DELETE FROM POC WHERE NAME in('Poc Test 1', 'Poc Test 2');
