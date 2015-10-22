@@ -1,23 +1,24 @@
 spring:
   profiles.active: local
-  application.name: materiais-alternativos
+  application.name: liquibase-example
 
 liquibase:
-  change-log: classpath:/db/db.master.xml
+  change-log: classpath:db/db.master.xml
 ---
 spring:
   profiles: local
   datasource:
     driverClassName: oracle.jdbc.driver.OracleDriver
     url: jdbc:oracle:thin:@localhost:1521:xe
-    username: localhost
-    password: localhost
+    username: erm_user
+    password: erm
   jpa:
     database: oracle
     show-sql: true
 liquibase:
   enabled: true
   drop-first: false
+  contexts: local
 ---
 spring:
   profiles: dev
@@ -32,21 +33,22 @@ spring:
 liquibase:
   enabled: true
   drop-first: false
+  contexts: dev
 ---
 spring:
   profiles: integration-test
   datasource:
     driverClassName: oracle.jdbc.driver.OracleDriver
-    url: jdbc:oracle:thin:@integration.test.com:1521:dev
-    username: integration
-    password: integration
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    username: erm_user
+    password: erm
   jpa:
     database: oracle
     show-sql: false
 liquibase:
   enabled: true
   drop-first: true
-  contexts: tests
+  contexts: test
 ---
 spring:
   profiles: prod
@@ -57,3 +59,4 @@ spring:
     show-sql: false
 liquibase:
   enabled: false
+  context: prod
