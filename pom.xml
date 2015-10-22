@@ -90,7 +90,7 @@
                 -->
                 <configuration>
                     <verbose>true</verbose>
-                    <changeLogFile>src/main/resources/db.master.xml</changeLogFile>
+                    <changeLogFile>src/main/resources/db/db.master.xml</changeLogFile>
                     <driver>oracle.jdbc.driver.OracleDriver</driver>
                 </configuration>
             </plugin>
