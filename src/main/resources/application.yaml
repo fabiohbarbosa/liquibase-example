@@ -10,8 +10,8 @@ spring:
   datasource:
     driverClassName: oracle.jdbc.driver.OracleDriver
     url: jdbc:oracle:thin:@localhost:1521:xe
-    username: erm_user
-    password: erm
+    username: localhost
+    password: localhost
   jpa:
     database: oracle
     show-sql: true
@@ -23,9 +23,9 @@ spring:
   profiles: dev
   datasource:
     driverClassName: oracle.jdbc.driver.OracleDriver
-    url: jdbc:oracle:thin:@ora-ts11.sjk.emb:1521:ts11
-    username: erm_int
-    password: skynet
+    url: jdbc:oracle:thin:@dev.test.com:1521:dev
+    username: dev
+    password: dev
   jpa:
     database: oracle
     show-sql: true
@@ -37,9 +37,9 @@ spring:
   profiles: integration-test
   datasource:
     driverClassName: oracle.jdbc.driver.OracleDriver
-    url: jdbc:oracle:thin:@ora-ts11.sjk.emb:1521:ts11
-    username: erm_int
-    password: skynet
+    url: jdbc:oracle:thin:@integration.test.com:1521:dev
+    username: integration
+    password: integration
   jpa:
     database: oracle
     show-sql: false
