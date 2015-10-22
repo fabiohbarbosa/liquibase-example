@@ -1,0 +1,59 @@
+spring:
+  profiles.active: local
+  application.name: materiais-alternativos
+
+liquibase:
+  change-log: classpath:/db/db.master.xml
+---
+spring:
+  profiles: local
+  datasource:
+    driverClassName: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    username: erm_user
+    password: erm
+  jpa:
+    database: oracle
+    show-sql: true
+liquibase:
+  enabled: true
+  drop-first: false
+---
+spring:
+  profiles: dev
+  datasource:
+    driverClassName: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@ora-ts11.sjk.emb:1521:ts11
+    username: erm_int
+    password: skynet
+  jpa:
+    database: oracle
+    show-sql: true
+liquibase:
+  enabled: true
+  drop-first: false
+---
+spring:
+  profiles: integration-test
+  datasource:
+    driverClassName: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@ora-ts11.sjk.emb:1521:ts11
+    username: erm_int
+    password: skynet
+  jpa:
+    database: oracle
+    show-sql: false
+liquibase:
+  enabled: true
+  drop-first: true
+  contexts: tests
+---
+spring:
+  profiles: prod
+  datasource:
+    jndi-name: java:jboss/datasources/pocDS
+  jpa:
+    database: oracle
+    show-sql: false
+liquibase:
+  enabled: false
