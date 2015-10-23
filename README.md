@@ -84,6 +84,13 @@ Check how many changeset want to rollback, referring in DATABASECHANGELOG table
 SELECT * FROM DATABASECHANGELOG ORDER BY DATEEXECUTED DESC;
 ```
 
+##### Test Rollback
+```bash
+mvn liquibase:updateTestingRollback -Dliquibase.url=jdbc:oracle:thin:@localhost:1521:xe -Dliquibase.username=erm_user -Dliquibase.password=erm
+```
+
+*To test all rollback, drop database*
+
 ##### Clear checksum
 When a file changes its hash changes, if you want to clear this check run
 
