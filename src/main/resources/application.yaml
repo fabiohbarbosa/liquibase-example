@@ -1,7 +1,6 @@
 spring:
   profiles.active: local
   application.name: liquibase-example
-
 liquibase:
   change-log: classpath:db/db.master.xml
 ---
