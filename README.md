@@ -97,3 +97,16 @@ When a file changes its hash changes, if you want to clear this check run
 ```bash
 mvn liquibase:clearCheckSums -Dliquibase.url=jdbc:oracle:thin:@localhost:1521:xe -Dliquibase.username=erm_user -Dliquibase.password=erm
 ```
+
+##### Other commands
+```bash
+mvn spring-boot:run -Dliquibase.dropFirst=true
+```
+
+```bash
+mvn spring-boot:run -Dliquibase.enabled=false
+```
+
+```bash
+mvn spring-boot:run -Dliquibase.dropFirst=true -Dspring.profiles.active=dev
+```
